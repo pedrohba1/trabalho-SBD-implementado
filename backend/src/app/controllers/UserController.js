@@ -1,29 +1,28 @@
 import * as Yup from 'yup';
-import User from '../models/User';
-import File from '../models/File';
-import Location from '../models/Location';
+
+const schema = Yup.object().shape({
+  account: Yup.object().shape({
+    name: Yup.string(),
+    email: Yup.string()
+      .email()
+      .required(),
+    password: Yup.string()
+      .required()
+      .min(6),
+  }),
+  location: Yup.object().shape({
+    position: Yup.object().shape({
+      type: Yup.string(),
+      coordinates: Yup.array(),
+    }),
+  }),
+});
 
 class UserController {
   async store(req, res) {
-    const schema = Yup.object().shape({
-      account: Yup.object().shape({
-        name: Yup.string(),
-        email: Yup.string()
-          .email()
-          .required(),
-        password: Yup.string()
-          .required()
-          .min(6),
-      }),
-      location: Yup.object().shape({
-        position: Yup.object().shape({
-          type: Yup.string(),
-          coordinates: Yup.array(),
-        }),
-      }),
-    });
 
-    if (!(await schema.isValid(req.body))) {
+
+  /*   if (!(await schema.isValid(req.body))) {
       return res.status(400).json({
         error: 'validation fail',
       });
@@ -51,12 +50,12 @@ class UserController {
         ...req.body.account,
       });
     }
-
+ */
     return res.json(user);
   }
 
   async update(req, res) {
-    const schema = Yup.object().shape({
+ /*    const schema = Yup.object().shape({
       name: Yup.string(),
       email: Yup.string().email(),
       oldPassword: Yup.string().min(6),
@@ -108,7 +107,7 @@ class UserController {
           attributes: ['id', 'path', 'url'],
         },
       ],
-    });
+    }); */
 
     return res.json({
       id,
