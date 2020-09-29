@@ -4,6 +4,7 @@ import { Router } from 'express';
 import UserController from './app/controllers/UserController';
 import PizzaController from './app/controllers/PizzaController';
 import DonoController from './app/controllers/DonoController';
+import PizzariaController from './app/controllers/PizzariaController';
 const routes = new Router();
 
 routes.post('/users', UserController.store);
@@ -16,5 +17,10 @@ routes.post('/dono', DonoController.store);
 routes.get('/dono', DonoController.index);
 routes.put('/dono', DonoController.update);
 routes.delete('/dono', DonoController.destroy);
+
+routes.post('/pizzaria', PizzariaController.store);
+//routes.get('/dono', DonoController.index);
+//routes.put('/dono', DonoController.update);
+//routes.delete('/dono', DonoController.destroy);
 
 export default routes;
