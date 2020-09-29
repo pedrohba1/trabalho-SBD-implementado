@@ -16,3 +16,7 @@ docker run --name seePostgres -e  POSTGRES_USER=see -e POSTGRES_PASSWORD=trabalh
 Depois, você precisar criar um arquivo `.env`com exatamente o mesmo conteúdo que o arquivo `.env.example` na raíz da pasta backend
 
 Em seguida rode o comando `npm install` para instalar todas as dependências.
+
+em seguida rode `npm run dev` e o projeto estará rodando.
+
+Use o arquivo do Insomnia para testar as requisições ao banco de dados.
