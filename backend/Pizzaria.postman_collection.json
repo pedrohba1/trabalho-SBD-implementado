@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "b14f9e3b-fa37-4769-85a2-5662e8e6252d",
+		"name": "Pizzaria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetDono",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3333/dono",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"dono"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostDono",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cpf\": \"14732943632\",\n\t\"nome\": \"pedro henrique\",\n\t\"cep\": \"3049\",\n\t\"linkedin\": \"pedrohba19@gmail.com\",\n\t\"data_nascimento\": \"25/02/1999\",\n\t\"nmro_residencia\": \"2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3333/dono",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"dono"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostPizzaria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cpf\": \"14732943632\",\n\t\"nome\": \"pedro henrique\",\n\t\"cep\": \"3049\",\n\t\"linkedin\": \"pedrohba19@gmail.com\",\n\t\"data_nascimento\": \"25/02/1999\",\n\t\"nmro_residencia\": \"2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3333/dono",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"dono"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutDono",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"14732943632\",\n    \"nome\": \"Gabriel Otsuka\",\n    \"linkedin\": \"gabrielotsuka@gmail.com\",\n    \"cep\": \"38408263\",\n    \"data_nascimento\": \"0000-01-01T03:06:28.000Z\",\n    \"nmro_residencia\": 446\n}"
+				},
+				"url": {
+					"raw": "localhost:3333/dono",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"dono"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDono",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\":\"05651729133\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3333/dono",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"dono"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
