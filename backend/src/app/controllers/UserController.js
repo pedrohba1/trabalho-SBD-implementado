@@ -51,7 +51,7 @@ class UserController {
       });
     }
  */
-    return res.json(user);
+    return res.json('teste');
   }
 
   async update(req, res) {

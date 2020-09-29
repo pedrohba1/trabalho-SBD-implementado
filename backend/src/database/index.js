@@ -1,18 +1,9 @@
-import Sequelize from 'sequelize';
+import {Client} from 'pg'
 
-import databaseConfig from '../config/database';
+const connectionString = 'postgres://see:trabalho@localhost:5433/see';
+const client = new Client({
+    connectionString: connectionString
+});
+client.connect();
 
-
-
-class Database {
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    this.connection = new Sequelize(databaseConfig);
-
-  }
-}
-
-export default new Database();
+export default client;
