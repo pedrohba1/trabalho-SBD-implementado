@@ -38,7 +38,7 @@ class DonoController {
   async update(req,res){
     const {cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
 
-    const text = `UPDATE pizzaria.dono_de_negocio SET nome = $2, linkedin = $3, cep = $4, data_nascimento = TO_DATE('17/12/2015', $5), nmro_residencia = $6 WHERE cpf = $1`
+    const text = `UPDATE pizzaria.dono_de_negocio SET nome = $2, linkedin = $3, cep = $4, data_nascimento = TO_DATE('17/12/2015', $5), nmro_residencia = $6 WHERE cpf = $1 RETURNING *`
     const values = [cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
 
     try {
@@ -54,7 +54,7 @@ class DonoController {
   async destroy(req,res){
     const {cpf} = req.body;
 
-    const text = `DELETE FROM pizzaria.dono_de_negocio WHERE cpf = $1`
+    const text = `DELETE FROM pizzaria.dono_de_negocio WHERE cpf = $1 RETURNING *`
     const values = [cpf]
 
     try {
