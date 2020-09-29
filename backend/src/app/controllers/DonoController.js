@@ -52,14 +52,20 @@ class DonoController {
   }
 
   async destroy(req,res){
+    const {cpf} = req.body;
 
+    const text = `DELETE FROM pizzaria.dono_de_negocio WHERE cpf = $1`
+    const values = [cpf]
+
+    try {
+      const result = await client.query(text, values)
+      return res.json({ result: result.rows });
+
+    } catch (err) {
+      console.log(err.stack)
+      return res.json({ error: 'error'});
+    }
   }
-
-  async show(req,res){
-
-
-  }
-
 
 }
 
