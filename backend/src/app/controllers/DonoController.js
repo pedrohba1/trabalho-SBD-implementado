@@ -36,7 +36,19 @@ class DonoController {
   }
 
   async update(req,res){
+    const {cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
 
+    const text = `UPDATE pizzaria.dono_de_negocio SET nome = $2, linkedin = $3, cep = $4, data_nascimento = TO_DATE('17/12/2015', $5), nmro_residencia = $6 WHERE cpf = $1`
+    const values = [cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
+
+    try {
+      const result = await client.query(text, values)
+      return res.json({ result: result.rows });
+
+    } catch (err) {
+      console.log(err.stack)
+      return res.json({ error: 'error'});
+    }
   }
 
   async destroy(req,res){

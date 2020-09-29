@@ -14,5 +14,6 @@ routes.post('/pizzas', PizzaController.store);
 
 routes.post('/dono', DonoController.store);
 routes.get('/dono', DonoController.index);
+routes.put('/dono', DonoController.update);
 
 export default routes;
