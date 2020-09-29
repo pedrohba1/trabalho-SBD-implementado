@@ -23,8 +23,16 @@ class DonoController {
   }
 
   async index (req,res){
+    const text = `SELECT * FROM pizzaria.dono_de_negocio`
 
+    try {
+      const result = await client.query(text)
+      return res.json({ result: result.rows });
 
+    } catch (err) {
+      console.log(err.stack)
+      return res.json({ error: 'error'});
+    }
   }
 
   async update(req,res){
