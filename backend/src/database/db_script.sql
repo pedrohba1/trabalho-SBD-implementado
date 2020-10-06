@@ -25,6 +25,7 @@ fechamento TIME,
 cpf_dono VARCHAR(11) NOT NULL,
 CONSTRAINT donoNegocioFK FOREIGN KEY(cpf_dono)
 REFERENCES dono_de_negocio(cpf)
+ON DELETE CASCADE
 );
 
 CREATE TABLE entregador  (
@@ -49,7 +50,7 @@ id_pedido SERIAL NOT NULL PRIMARY KEY,
 id_entregador VARCHAR(11) NOT NULL,
 localizacao VARCHAR(50) NOT NULL,
 preco_total FLOAT NOT NULL,
-hora_de_entrega DATE, 
+hora_de_entrega DATE,
 hora_de_saida DATE,
 cpf_consumidor VARCHAR(11) NOT NULL,
 CONSTRAINT consumidorFK  FOREIGN KEY (cpf_consumidor)
