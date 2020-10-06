@@ -12,12 +12,12 @@ VALUES (default, 'Casa Blanca', 'www.casablanca.com', '32345687', '38408546', '5
 	   (default, 'Pontual', 'www.pontual.com','32546871', '38408204', '100', '15:00:00', '22:00:00', 4),
 	   (default, 'Casa das Massas', 'www.casadasmassas', '32478476', '38408710', '700', '15:00:00','23:00:00', 5);
 
-INSERT INTO pizzaria.entregador (id_entregador, cnh, nome, salario, id_pizzaria)
-VALUES (default, '76389367278', 'Antônio Carlos', 450.00, 1),
-       (default, '52318257443', 'José Pedro', 500.00, 2),
-	   (default, '74462997486', 'Luisa Pereira', 480.99, 3),
-       (default, '48601167182', 'Augusto Fernando', 600.00, 4),
-	   (default, '27808640857', 'Fernanda Nunes', 550.00, 5);
+INSERT INTO pizzaria.entregador (id_entregador,id_supervisor, cnh, nome, salario, id_pizzaria)
+VALUES (default,default ,'76389367278', 'Antônio Carlos', 450.00, 1),
+       (default, 1,'52318257443','José Pedro', 500.00, 2),
+	   (default, 1, '74462997486', 'Luisa Pereira', 480.99, 3),
+       (default,2, '48601167182', 'Augusto Fernando', 600.00, 4),
+	   (default,2, '27808640857', 'Fernanda Nunes', 550.00, 5);
 
 INSERT INTO pizzaria.cliente_consumidor(id_cliente, cpf, nome, CEP, data_nascimento, nmro_residencia)
     VALUES (default, '90192407066', 'Pedro Francisco', '38407619', '1998-01-09', 55),

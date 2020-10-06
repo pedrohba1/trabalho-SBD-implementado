@@ -29,12 +29,16 @@ CREATE TABLE pizzaria  (
 
 CREATE TABLE entregador  (
     id_entregador SERIAL NOT NULL PRIMARY KEY,
+    id_supervisor INT NOT NULL DEFAULT 1,
     cnh VARCHAR(11) NOT NULL,
     nome VARCHAR(40) NOT NULL,
     salario REAL NOT NULL,
     id_pizzaria INT NOT NULL,
     CONSTRAINT pizzariaFK FOREIGN KEY(id_pizzaria)
-    REFERENCES pizzaria(id_pizzaria)
+    REFERENCES pizzaria(id_pizzaria),
+    CONSTRAINT id_supervisorFK FOREIGN KEY(id_supervisor)
+    REFERENCES entregador(id_entregador)
+
 );
 
 CREATE TABLE cliente_consumidor (
