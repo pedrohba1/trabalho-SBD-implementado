@@ -5,10 +5,11 @@ class DonoController {
 
   async store (req, res){
 
-    const {cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
+    const {id_dono, cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
 
-    const text = `INSERT INTO pizzaria.dono_de_negocio(cpf, nome,linkedin, cep, data_nascimento, nmro_residencia) VALUES($1, $2, $3, $4, TO_DATE('17/12/2015', $5), $6) RETURNING *`
-    const values = [cpf,nome, linkedin, cep, data_nascimento , nmro_residencia]
+    const id_dono = 'DEFAULT'
+    const text = `INSERT INTO pizzaria.dono_de_negocio(id_dono, cpf, nome, linkedin, cep, data_nascimento, nmro_residencia) VALUES($1, $2, $3, $4, $5, TO_DATE($6, 'DD/MM/YYYY'), $7) RETURNING *`
+    const values = [id_dono, cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
 
     try {
       const result = await client.query(text, values)
@@ -36,10 +37,10 @@ class DonoController {
   }
 
   async update(req,res){
-    const {cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
+    const {id_dono, cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
 
-    const text = `UPDATE pizzaria.dono_de_negocio SET nome = $2, linkedin = $3, cep = $4, data_nascimento = TO_DATE('17/12/2015', $5), nmro_residencia = $6 WHERE cpf = $1 RETURNING *`
-    const values = [cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
+    const text = `UPDATE pizzaria.dono_de_negocio SET cpf = $2 nome = $3, linkedin = $4, cep = $5, data_nascimento = TO_DATE($6, 'DD/MM/YYYY'), nmro_residencia = $7 WHERE id_dono = $1 RETURNING *`
+    const values = [id_dono, cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
 
     try {
       const result = await client.query(text, values)
@@ -52,10 +53,10 @@ class DonoController {
   }
 
   async destroy(req,res){
-    const {cpf} = req.body;
+    const {id_dono} = req.body;
 
-    const text = `DELETE FROM pizzaria.dono_de_negocio WHERE cpf = $1 RETURNING *`
-    const values = [cpf]
+    const text = `DELETE FROM pizzaria.dono_de_negocio WHERE id_dono = $1 RETURNING *`
+    const values = [id_dono]
 
     try {
       const result = await client.query(text, values)
