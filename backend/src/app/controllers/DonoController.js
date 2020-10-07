@@ -5,11 +5,11 @@ class DonoController {
 
   async store (req, res){
 
-    const {id_dono, cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
+    const {cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
 
-    const id_dono = 'DEFAULT'
-    const text = `INSERT INTO pizzaria.dono_de_negocio(id_dono, cpf, nome, linkedin, cep, data_nascimento, nmro_residencia) VALUES($1, $2, $3, $4, $5, TO_DATE($6, 'DD/MM/YYYY'), $7) RETURNING *`
-    const values = [id_dono, cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
+    const text = `INSERT INTO pizzaria.dono_de_negocio(id_dono, cpf, nome, linkedin, cep, data_nascimento, nmro_residencia) 
+                  VALUES(DEFAULT, $1, $2, $3, $4, TO_DATE($5, 'DD/MM/YYYY'), $6) RETURNING *`
+    const values = [cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
 
     try {
       const result = await client.query(text, values)
@@ -39,7 +39,7 @@ class DonoController {
   async update(req,res){
     const {id_dono, cpf, nome, linkedin, cep, data_nascimento, nmro_residencia} = req.body;
 
-    const text = `UPDATE pizzaria.dono_de_negocio SET cpf = $2 nome = $3, linkedin = $4, cep = $5, data_nascimento = TO_DATE($6, 'DD/MM/YYYY'), nmro_residencia = $7 WHERE id_dono = $1 RETURNING *`
+    const text = `UPDATE pizzaria.dono_de_negocio SET cpf = $2, nome = $3, linkedin = $4, cep = $5, data_nascimento = TO_DATE($6, 'DD/MM/YYYY'), nmro_residencia = $7 WHERE id_dono = $1 RETURNING *`
     const values = [id_dono, cpf, nome, linkedin, cep, data_nascimento , nmro_residencia]
 
     try {
